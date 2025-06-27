@@ -1,0 +1,7 @@
+/////need this to load .env variables into Node.js://///
+npm install dotenv
+
+/////cmnd for auth controller/////
+npm install bcryptjs jsonwebtoken
+
+

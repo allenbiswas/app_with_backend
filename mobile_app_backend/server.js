@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import userRoutes from './routes/dataRoutes.js';
+import dataRoutes from './routes/dataRoutes.js';
 
 dotenv.config();
 
@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use('/api/data', userRoutes);
+app.use('/api/data', dataRoutes);
 
 app.get('/', (req, res) => {
   res.send('Flutter Backend is Running...');
