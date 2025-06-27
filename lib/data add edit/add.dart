@@ -26,7 +26,7 @@ Future<void> _submit() async {
     );
 
     await postDataFromModel(user);
-    context.go('/'); // Go back to Home
+    context.go('/home'); // Go back to Home
   } catch (e) {
     print('Error: $e');
     ScaffoldMessenger.of(context).showSnackBar(
@@ -44,7 +44,7 @@ Future<void> _submit() async {
         centerTitle: true,
         elevation: 0,
         leading: IconButton(
-          onPressed: () => context.go('/'),
+          onPressed: () => context.go('/home'),
           icon: Icon(Icons.arrow_back),
         ),
       ),

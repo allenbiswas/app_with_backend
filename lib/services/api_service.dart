@@ -1,8 +1,43 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:mobile_app/model/model.dart';
+import 'package:mobile_app/model/user_model.dart';
 
+//FOR ANDROID EMULATOR
 const String baseUrl = "http://10.0.2.2:5000/api/data";
+const String authUrl = "http://10.0.2.2:5000/api/auth";
+
+//FOR WEB
+// const String baseUrl = "http://localhost:5000/api/data";
+// const String authUrl = "http://localhost:5000/api/auth";
+
+class AuthResponse {
+  final String token;
+  final UserModel user;
+
+  AuthResponse({required this.token, required this.user});
+}
+
+Future<AuthResponse> loginUser(String email, String password) async {
+  final res = await http.post(
+    Uri.parse('$authUrl/login'),
+    headers: {"Content-Type": "application/json"},
+    body: jsonEncode({
+      'email': email,
+      'password': password,
+    }),
+  );
+
+  if (res.statusCode == 200) {
+    final data = jsonDecode(res.body);
+    final token = data['token'];
+    final user = UserModel.fromJson(data['user'] ?? {}); 
+
+    return AuthResponse(token: token, user: user);
+  } else {
+    throw Exception("Failed to login: ${jsonDecode(res.body)['message']}");
+  }
+}
 
 Future<List<dynamic>> fetchData() async {
   final res = await http.get(Uri.parse(baseUrl));

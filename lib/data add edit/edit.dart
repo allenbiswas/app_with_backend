@@ -35,12 +35,12 @@ class _EditDetailsState extends State<EditDetails> {
       address: _addresscontroller.text,
     );
     await updateUser(updated);
-    context.go('/');
+    context.go('/home');
   }
 
   Future<void> _delete(UserData user) async {
     await deleteData(user.id!);
-    context.go('/');
+    context.go('/home');
   }
 
   @override
@@ -51,7 +51,7 @@ class _EditDetailsState extends State<EditDetails> {
         centerTitle: true,
         elevation: 0,
         leading: IconButton(
-          onPressed: () => context.go('/'),
+          onPressed: () => context.go('/home'),
           icon: Icon(Icons.arrow_back),
         ),
       ),
