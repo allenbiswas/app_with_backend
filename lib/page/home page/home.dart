@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobile_app/services/api_service.dart';
+import 'package:mobile_app/widget/sidebar.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -26,6 +27,7 @@ class _HomeState extends State<Home> {
         centerTitle: true,
         elevation: 0,
       ),
+      drawer: const Sidebar(),
       body: FutureBuilder<List<dynamic>>(
         future: _futureData,
         builder: (context, snapshot) {

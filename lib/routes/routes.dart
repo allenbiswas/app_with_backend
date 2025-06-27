@@ -1,8 +1,8 @@
 import 'package:go_router/go_router.dart';
-import 'package:mobile_app/data%20add%20edit/add.dart';
-import 'package:mobile_app/data%20add%20edit/edit.dart';
-import 'package:mobile_app/home%20page/home.dart';
-import 'package:mobile_app/login%20page/login.dart';
+import 'package:mobile_app/page/data%20add%20edit/add.dart';
+import 'package:mobile_app/page/data%20add%20edit/edit.dart';
+import 'package:mobile_app/page/home%20page/home.dart';
+import 'package:mobile_app/page/login%20page/login.dart';
 
 final GoRouter router = GoRouter(
   routes: <GoRoute>[
