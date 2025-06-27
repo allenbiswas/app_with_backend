@@ -102,7 +102,7 @@ class _EditDetailsState extends State<EditDetails> {
                   label: Text("Update"),
                 ),
                 TextButton.icon(
-                  onPressed: () => _delete(user),
+                  onPressed: () => _delete(user),//_delete(UserData.fromJson(item))
                   icon: Icon(Icons.delete, color: Colors.red),
                   label: Text("Delete", style: TextStyle(color: Colors.red)),
                 ),
