@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:mobile_app/model.dart';
+import 'package:mobile_app/model/model.dart';
 
 const String baseUrl = "http://10.0.2.2:5000/api/data";
 

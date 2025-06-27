@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mobile_app/api_service.dart';
-import 'package:mobile_app/model.dart';
+import 'package:mobile_app/services/api_service.dart';
+import 'package:mobile_app/model/model.dart';
 
 class AddDetails extends StatefulWidget {
   const AddDetails({super.key});

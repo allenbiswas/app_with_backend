@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mobile_app/api_service.dart';
+import 'package:mobile_app/services/api_service.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

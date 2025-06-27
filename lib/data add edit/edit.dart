@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mobile_app/model.dart';
-import '../api_service.dart';
+import 'package:mobile_app/model/model.dart';
+import '../services/api_service.dart';
 
 class EditDetails extends StatefulWidget {
   final String id;
