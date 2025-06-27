@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobile_app/model/user_model.dart';
 import 'package:mobile_app/services/api_service.dart';
+import 'package:mobile_app/widget/login_card.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -45,34 +46,15 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Login")),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: _emailController,
-              decoration: const InputDecoration(labelText: "Email"),
-            ),
-            const SizedBox(height: 12),
-            TextField(
-              controller: _passwordController,
-              obscureText: true,
-              decoration: const InputDecoration(labelText: "Password"),
-            ),
-            const SizedBox(height: 20),
-            if (_isLoading)
-              const CircularProgressIndicator()
-            else
-              ElevatedButton(
-                onPressed: _handleLogin,
-                child: const Text("Login"),
-              ),
-            if (_error != null) ...[
-              const SizedBox(height: 10),
-              Text(_error!, style: const TextStyle(color: Colors.red)),
-            ],
-          ],
+      body: Center(
+        child: LoginCard(
+          emailController: _emailController,
+          passwordController: _passwordController,
+          onSubmit: _handleLogin,
+          isLoading: _isLoading,
+          errorMessage: _error,
+          title: 'Login',
+          buttonText: 'Login',
         ),
       ),
     );

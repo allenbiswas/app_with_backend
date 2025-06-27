@@ -16,25 +16,24 @@ class _AddDetailsState extends State<AddDetails> {
   final _emailcontroller = TextEditingController();
   final _addresscontroller = TextEditingController();
 
-Future<void> _submit() async {
-  try {
-    final user = UserData(
-      name: _namecontroller.text,
-      phone: _phonecontroller.text,
-      email: _emailcontroller.text,
-      address: _addresscontroller.text,
-    );
+  Future<void> _submit() async {
+    try {
+      final user = UserData(
+        name: _namecontroller.text,
+        phone: _phonecontroller.text,
+        email: _emailcontroller.text,
+        address: _addresscontroller.text,
+      );
 
-    await postDataFromModel(user);
-    context.go('/home'); // Go back to Home
-  } catch (e) {
-    print('Error: $e');
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("Error: $e")),
-    );
+      await postDataFromModel(user);
+      context.go('/home'); // Go back to Home
+    } catch (e) {
+      print('Error: $e');
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Error: $e")));
+    }
   }
-}
-
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +55,9 @@ Future<void> _submit() async {
               controller: _namecontroller,
               decoration: InputDecoration(
                 labelText: 'Name',
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
             ),
             SizedBox(height: 10),
@@ -64,7 +65,9 @@ Future<void> _submit() async {
               controller: _phonecontroller,
               decoration: InputDecoration(
                 labelText: 'Phone No',
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
             ),
             SizedBox(height: 10),
@@ -72,7 +75,9 @@ Future<void> _submit() async {
               controller: _emailcontroller,
               decoration: InputDecoration(
                 labelText: 'Email',
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
             ),
             SizedBox(height: 10),
@@ -80,11 +85,17 @@ Future<void> _submit() async {
               controller: _addresscontroller,
               decoration: InputDecoration(
                 labelText: 'Address',
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
             ),
             SizedBox(height: 20),
-            ElevatedButton(onPressed: _submit, child: Text("Submit")),
+            ElevatedButton.icon(
+              onPressed: _submit,
+              icon: Icon(Icons.save, color: Colors.green[900]),
+              label: Text("Submit", style: TextStyle(color: Colors.green)),
+            ),
           ],
         ),
       ),

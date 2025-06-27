@@ -78,34 +78,61 @@ class _EditDetailsState extends State<EditDetails> {
               children: [
                 TextField(
                   controller: _namecontroller,
-                  decoration: InputDecoration(labelText: 'Name'),
+                  decoration: InputDecoration(
+                    labelText: 'Name',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
                 ),
                 SizedBox(height: 10),
                 TextField(
                   controller: _phonecontroller,
-                  decoration: InputDecoration(labelText: 'Phone'),
+                  decoration: InputDecoration(
+                    labelText: 'Phone No',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
                 ),
                 SizedBox(height: 10),
                 TextField(
                   controller: _emailcontroller,
-                  decoration: InputDecoration(labelText: 'Email'),
+                  decoration: InputDecoration(
+                    labelText: 'Email',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
                 ),
                 SizedBox(height: 10),
                 TextField(
                   controller: _addresscontroller,
-                  decoration: InputDecoration(labelText: 'Address'),
+                  decoration: InputDecoration(
+                    labelText: 'Address',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
                 ),
                 SizedBox(height: 20),
+                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
                 ElevatedButton.icon(
                   onPressed: () => _update(user),
-                  icon: Icon(Icons.save),
-                  label: Text("Update"),
+                  icon: Icon(Icons.save, color: Colors.green[900]),
+                  label: Text("Update", style: TextStyle(color: Colors.green)),
                 ),
-                TextButton.icon(
-                  onPressed: () => _delete(user),//_delete(UserData.fromJson(item))
+                SizedBox(width: 10),
+                ElevatedButton.icon(
+                  onPressed: () => _delete(user), //_delete(UserData.fromJson(item))
                   icon: Icon(Icons.delete, color: Colors.red),
                   label: Text("Delete", style: TextStyle(color: Colors.red)),
                 ),
+                  ],
+                 )
+                
               ],
             ),
           );
